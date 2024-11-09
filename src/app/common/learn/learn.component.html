@@ -1,0 +1,5 @@
+<ul>
+  @for(item of ticketInfo$ | async; track item){
+  <li>{{item.name}}</li>
+  }
+</ul>

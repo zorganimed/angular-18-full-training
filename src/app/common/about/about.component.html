@@ -1,0 +1,14 @@
+<div>
+  <app-counter-btn></app-counter-btn>
+</div>
+
+<div>
+  <app-counter-display></app-counter-display>
+</div>
+<div>
+  <ul>
+  @for(item of countries; track item; let i = $index;let c=$count; let e = $even){
+  <li [ngClass]="e? 'redClass':'greenClass'"> {{e}} - {{i}} - {{c}} - {{item}}</li>
+  }
+  </ul>
+</div>

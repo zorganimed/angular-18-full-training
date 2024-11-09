@@ -1,0 +1,61 @@
+{
+  "user": [
+    {
+      "id": "admin",
+      "name": "adminuser",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "id": "user",
+      "name": "sales user",
+      "password": "test",
+      "role": "salesman"
+    },
+    {
+      "id": "mohamed",
+      "password": "mz0123",
+      "email": "mzo@gmail.com",
+      "name": "zorgani",
+      "role": "salesman",
+      "gender": "m"
+    }
+  ],
+  "product": [
+    {
+      "id": "1",
+      "name": "Cricket bat",
+      "description": "Cricket bat",
+      "price": "150",
+      "status": true
+    },
+    {
+      "id": "2",
+      "name": "sqssdkff",
+      "description": "sdsdhhp",
+      "price": "11424",
+      "status": true
+    },
+    {
+      "id": "3",
+      "name": "Tennis ",
+      "description": "old",
+      "price": "11",
+      "status": true
+    },
+    {
+      "id": "6",
+      "name": "Foot Ball",
+      "description": "New",
+      "price": 1,
+      "status": true
+    },
+    {
+      "id": "8",
+      "name": "Base ball",
+      "description": "Base ball",
+      "price": "15",
+      "status": true
+    }
+  ]
+}

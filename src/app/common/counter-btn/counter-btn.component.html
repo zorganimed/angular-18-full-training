@@ -1,0 +1,10 @@
+
+
+<button mat-raised-button color="primary" (click)="increment()">+</button>
+<button mat-raised-button color="accent" (click)="decrement()">-</button>
+<button mat-raised-button color="warn" (click)="reset()">Reset</button>
+
+<br>
+
+<input #name>
+<button mat-raised-button color="warn" (click)="addUser(name.value)">Add User</button>

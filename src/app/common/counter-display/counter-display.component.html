@@ -1,0 +1,44 @@
+<div style="margin-left:5%;">
+  <h2>counter value using component attribute with effect is : {{displayValue}}</h2>
+  <br>
+  <h2>counter value using service attribute is : {{this.masterService.counterValue()}}</h2>
+</div>
+
+<ul>
+  @for(item of masterService.players(); track item){
+  <li>{{item.id}} - {{item.name}}</li>
+  }
+</ul>
+
+<h2>We have {{totalPlayers()}} player(s)</h2>
+
+<h2>We have {{_totalPlayers$ | async}} player(s)</h2>
+
+<h2>We have {{_signalCount()}} player(s)</h2>
+
+<div>
+  @if(totalPlayers() == 0){
+  <h1>No users+</h1>
+  }
+  @else if(totalPlayers() ==1){
+  <h1>One user+</h1>
+  }
+  @else{
+  <h1>More users+</h1>
+  }
+</div>
+
+<div>
+  @switch(totalPlayers()){
+  @case(0){
+  <h1>NO users</h1>
+  }
+  @case(1){
+  <h1>Single user</h1>
+  }
+  @default{
+  <h1>More users</h1>
+  }
+  }
+</div>
+

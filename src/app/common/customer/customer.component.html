@@ -1,0 +1,50 @@
+<p>customer works!</p>
+<button routerLink="/customer/add" mat-button>Add</button>
+<button routerLink="/customer/edit/01" mat-button>Edit</button>
+<router-outlet></router-outlet>
+<input [(ngModel)]="userinput">
+<div>
+  <h1 #header>Zorgani Mohamed</h1>
+</div>
+<button (click)="load()">Click</button>
+<!--@defer(on timer(1000ms)){
+<div>
+  <h1>
+    Angular 18 tuto
+  </h1>
+</div>
+}
+@placeholder{
+<h2>Data will be available soon</h2>
+}-->
+
+<!--@defer(on interaction(header)){
+<div>
+<h1>
+Angular 18 tuto
+</h1>
+</div>
+}
+@placeholder{
+<h2>Data will be available soon</h2>
+}-->
+
+@defer(when count>2; on timer(3000ms)){
+<div>
+<h1>
+Angular 18 tuto
+</h1>
+</div>
+}
+@placeholder{
+<h2>Data will be available soon</h2>
+}
+@loading(after 100ms; minimum 1s){
+<h1>Loading...</h1>
+}
+@error{
+<h1>Failed to load</h1>
+}
+
+
+

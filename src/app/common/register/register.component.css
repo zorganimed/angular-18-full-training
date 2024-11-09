@@ -1,0 +1,13 @@
+.mat-mdc-card{
+  width : 50%;
+  margin-left: 25%;
+  margin-top: 25%;
+}
+
+.mat-mdc-form-field{
+  width : 100%;
+}
+
+.mdc-button{
+  margin : 2%;
+}

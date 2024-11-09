@@ -1,0 +1,48 @@
+<form class="example-form" [formGroup]="registerForm" (ngSubmit)="proceedRegister()">
+  <mat-card>
+    <mat-card-header>
+      <h2>New Register</h2>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input required matInput placeholder="username" formControlName="username">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input required matInput placeholder="password" formControlName="password" type="password">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input required matInput placeholder="name" formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input required matInput placeholder="email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          @for (item of roles; track item) {
+          <mat-option [value]="item.value">{{item.viewValue}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <section class="example-section">
+          <mat-checkbox formControlName="terms" color="primary" class="example-margin">Agree terms and conditions!</mat-checkbox>
+        </section>
+      </div>
+      <mat-radio-group formControlName="gender"  color="primary" aria-label="Select an option">
+        <mat-radio-button value="m">Male</mat-radio-button>
+        <mat-radio-button value="f">Female</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Register</button>
+      <button mat-raised-button color="accent" routerLink="/login">Login</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

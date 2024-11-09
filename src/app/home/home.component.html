@@ -1,0 +1,75 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{title | uppercase}}</mat-card-title>
+    <mat-card-subtitle>{{subTitle}}</mat-card-subtitle>
+
+  </mat-card-header>
+  <mat-card-content>
+    <app-contact></app-contact>
+    <span>{{date | date : 'dd/MMM/yyyy'}}</span>
+    <br>
+    <span>{{salary | currency:'TND'}}</span>
+    <br>
+    <span>{{salary | number : '1.2-2'}}</span>
+    <span>{{salary | number : '1.2-2'}}</span>
+    <br>
+    <span>{{salary/100 | percent}}</span>
+    <br>
+    <span>{{obj | json}}</span>
+    <br>
+    <span>{{title | reverse}}</span>
+    <br>
+    <input type="checkbox" [checked]="isDisabled">
+    <br>
+    <input type="checkbox" checked={{isDisabled}}>
+    <br>
+    <input (keyup)="updateTitle($event)">
+    <br>
+    <input value={{isDisabled}}>
+    <br>
+    <input [(ngModel)]="title">
+    <button (click)="changeTitle()">Click here</button>
+    <br>
+    <div [ngClass]="{'active' : isDisabled, 'inactive' : !isDisabled}">
+      <h2>Attribute direct</h2>
+    </div>
+    <br>
+    <div [ngClass]="isDisabled ==true ? 'inactive' : 'active'">
+      <h2>Attribute direct</h2>
+    </div>
+    <br>
+    <div *ngIf="isShow">
+      <h2 [ngStyle]="{'color' : _color, 'font-size.px' : _font}">Attribute direct</h2>
+    </div>
+    <div *ngFor="let item of ticketInfo" [ngStyle]="{'background-color':item.color,'color':'white'}">
+      <span>Id : {{item.id}}</span>
+      <h2>{{item.name | uppercase}}</h2>
+    </div>
+    <div ngSwitch="_view">
+      <div *ngSwitchCase="'home'">
+        <h2>This is home view</h2>
+      </div>
+      <div *ngSwitchCase="'about'">
+        <h2>This is home view</h2>
+      </div>
+      <div *ngSwitchDefault>
+        <h2>This is default view</h2>
+      </div>
+    </div>
+
+    <div>
+      <input [(ngModel)]="firstname">
+      <br>
+      <input [(ngModel)]="lastname">
+      <div>
+        <input placeholder="Fruitname" #fruit>
+        <br>
+        <button (click)="addFruit(fruit.value)">Update Fruits</button>
+      </div>
+      <app-child [firstname]="firstname" [lastname]="lastname" [nameObj]="obj" (dataUpdater)="updateTitle1($event)"></app-child>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>
+<br>
