@@ -44,6 +44,7 @@
           <td mat-cell *matCellDef="let row">
           <button mat-raised-button color="primary" (click)="editProduct(row.id)">Edit</button>
           <button mat-raised-button color="accent" (click)="deleteProduct(row.id)">Delete</button>
+            <button mat-raised-button color="accent" (click)="openDialog('1000ms', '1000ms',row.id)">Delete row</button>
           </td>
         </ng-container>
 

@@ -14,5 +14,5 @@ import {ProductEffect} from "./_store/Product.Effect";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([tokenInterceptor])), provideToastr({ closeButton: true, preventDuplicates: true }), provideStore({'product': productReducer}), provideEffects([ProductEffect]), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })]
+      provideHttpClient(withInterceptors([tokenInterceptor])), provideToastr({ closeButton: true, preventDuplicates: true }), provideStore({'product': productReducer}), provideEffects([ProductEffect]), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })]
 };

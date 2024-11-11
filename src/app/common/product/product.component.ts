@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ProductService} from "../../service/product.service";
 import {Product} from "../../model/product.model";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
@@ -11,6 +11,9 @@ import {CommonModule} from "@angular/common";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {AddProductComponent} from "../add-product/add-product.component";
 import {catchError, of, Subscription} from "rxjs";
+import {ConfirmComponent} from "../../dialogs/confirm/confirm.component";
+import {DialogService} from "../../service/dialog.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-product',
@@ -31,7 +34,9 @@ export class ProductComponent implements OnInit, OnDestroy{
 
   products : Product[] = [];
   constructor(private productService : ProductService,
-              private dialog : MatDialog) {
+              private dialog : MatDialog,
+              private dialogService: DialogService,
+              private toastr :ToastrService) {
   }
 
   ngOnInit(): void {
@@ -88,12 +93,27 @@ export class ProductComponent implements OnInit, OnDestroy{
   }
 
   deleteProduct(id : number) {
-    if(confirm('Do you want to remove ')){
+    //if(confirm('Do you want to remove ')){
       let sub2 = this.productService.deleteProductById(id).subscribe(item=>{
-        alert('Removed successfully');
+        this.toastr.success('Removed successfully','Success')
         this.loadProducts();
       });
       this.subscription.add(sub2);
-    }
+   // }
   }
+
+  readonly dialogConfirm = inject(MatDialog);
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, id : number): void {
+    this.dialogConfirm.open(ConfirmComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration
+    }).afterClosed().subscribe(item=>{
+      if(this.dialogService.name != ""){
+        this.deleteProduct(id);
+      }
+    });
+  }
+
 }
